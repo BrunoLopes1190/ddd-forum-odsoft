@@ -1,3 +1,14 @@
 plugins {
   id "com.github.node-gradle.node" version "7.0.2"
 }
+
+task docsGeneration(type: Exec) {
+    group = 'documentation'
+    description = 'Generates JSDoc documentation for the project.'
+
+    // Ensure npm dependencies are installed before running JSDoc
+    dependsOn 'npmInstall'
+
+    // Command to run JSDoc
+    commandLine 'npx', 'jsdoc', '-c', 'jsdoc.conf.json', '-r', 'src', '-d', 'docs'
+}
