@@ -10,5 +10,5 @@ task docsGeneration(type: Exec) {
     dependsOn 'npmInstall'
 
     // Command to run JSDoc
-    commandLine 'npx', 'jsdoc', '-c', 'jsdoc.conf.json', '-r', 'src', '-d', 'docs'
+    commandLine 'npm', 'run', 'jsdoc'
 }
